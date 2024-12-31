@@ -8,17 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="stock-service" />
+        <module name="rabbitmq-tutorial" />
         <module name="order-service" />
         <module name="email-service" />
-      </profile>
-      <profile name="Annotation profile for rabbitmq-tutorial" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
-        <module name="rabbitmq-tutorial" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
