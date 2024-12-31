@@ -1,5 +1,6 @@
 package com.cristian.rabbitmqtutorial.publisher;
 
+import com.cristian.rabbitmqtutorial.dto.User;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,24 +10,26 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class RabbitMQProducer {
+public class RabbitMQJsonProducer {
+
+    @Value(("${rabbitmq.routing.json.key}"))
+    private String routingJsonKey;
 
     @Value(("${rabbitmq.exchange.name}"))
     private String exchange;
 
-    @Value(("${rabbitmq.routing.key}"))
-    private String routingKey;
-
     private final RabbitTemplate rabbitTemplate;
-    private final Logger logger = LoggerFactory.getLogger(RabbitMQProducer.class);
+    private final Logger logger = LoggerFactory.getLogger(RabbitMQJsonProducer.class);
 
-    public void sendMessage(String message) {
-        logger.info("Message send: {}", message);
+    public void sendMessage(User message) {
+        logger.info("JSON Message send: {}", message);
         rabbitTemplate.convertAndSend(
                 exchange,
-                routingKey,
+                routingJsonKey,
                 message
         );
     }
 
+
 }
+
