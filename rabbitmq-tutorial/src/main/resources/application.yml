@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: rabbitmq-tutorial
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+
+rabbitmq:
+  queue:
+    name: "javaguides"
+    json:
+      name: "javaguides_json"
+
+  exchange:
+    name: "javaguides_exchange"
+
+  routing:
+    key: "javaguides_routingKey"
+    json:
+      key: "javaguides_json_routingKey"

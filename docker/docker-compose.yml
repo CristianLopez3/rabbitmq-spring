@@ -1,0 +1,26 @@
+services:
+  rabbitmq:
+    container_name: rabbitmq-container
+    image: rabbitmq:management
+#    environment:
+#      - RABBITMQ_DEFAULT_USER=myuser
+#      - RABBITMQ_DEFAULT_PASS=secret
+    ports:
+      - '5672:5672'    # Puerto para conexiones AMQP (Spring)
+      - '15672:15672'  # Puerto para la consola de administracion web
+      - '61613:61613'  # Puerto para STOMP (necesario para WebSocket STOMP Broker)
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq  # Persistencia de datos
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: always
+
+
+volumes:
+  rabbitmq_data:
+
+networks:
+  app-net:
