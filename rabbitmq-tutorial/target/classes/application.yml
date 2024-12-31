@@ -11,9 +11,13 @@ spring:
 rabbitmq:
   queue:
     name: "javaguides"
+    json:
+      name: "javaguides_json"
 
   exchange:
     name: "javaguides_exchange"
 
   routing:
     key: "javaguides_routingKey"
+    json:
+      key: "javaguides_json_routingKey"
