@@ -1,0 +1,4 @@
+com\cristian\rabbitmqtutorial\config\RabbitMQConfig.class
+com\cristian\rabbitmqtutorial\publisher\RabbitMQProducer.class
+com\cristian\rabbitmqtutorial\controller\MessageController.class
+com\cristian\rabbitmqtutorial\RabbitmqTutorialApplication.class
