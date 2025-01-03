@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: email-service
+  rabbitmq:
+    port: ${RABBITMQ_PORT:5672}
+    host: ${RABBITMQ_HOST:localhost}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+
+server:
+  port: ${SERVER_PORT:8083}
+
+
+rabbitmq:
+  queue:
+    email:
+      name: email-queue

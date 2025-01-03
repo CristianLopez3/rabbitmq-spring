@@ -7,6 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="rabbitmq-tutorial" />
+        <module name="order-service" />
+      </profile>
+      <profile name="Annotation profile for email-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="stock-service" />
         <module name="email-service" />
       </profile>
     </annotationProcessing>
@@ -14,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="email-service" options="-parameters" />
+      <module name="order-service" options="-parameters" />
       <module name="rabbitmq-tutorial" options="-parameters" />
       <module name="stock-service" options="-parameters" />
     </option>

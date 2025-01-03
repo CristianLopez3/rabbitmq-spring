@@ -1,19 +1,19 @@
 spring:
   application:
-    name: order-service
-
+    name: stock-service
   rabbitmq:
     port: ${RABBITMQ_PORT:5672}
     host: ${RABBITMQ_HOST:localhost}
     username: ${RABBITMQ_USERNAME:guest}
     password: ${RABBITMQ_PASSWORD:guest}
 
+server:
+  port: ${SERVER_PORT:8082}
+
 rabbitmq:
   queue:
     order:
       name: order-queue
-    email:
-      name: email-queue
 
   exchange:
     order:
@@ -22,5 +22,3 @@ rabbitmq:
   routing:
     order:
       name: order-routing
-    email:
-      name: email-routing
